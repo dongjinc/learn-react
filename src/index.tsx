@@ -1,9 +1,10 @@
-import React, {Suspense} from 'react';
+import React, { Suspense } from 'react';
 import ReactDOM from 'react-dom';
 
+import './lodash'
 
 import './index.css';
-// import App from './App';
+import App from './App';
 // import Gretting from './views/gretting'
 // import LoginControl from './components/LoginControl'
 // import MailBox from './components/Mailbox'
@@ -14,7 +15,7 @@ import './index.css';
 // import NameForm from './components/NameForm'
 // import NameFormUncontrolled from './components/NameFormUncontrolled'
 // import Calculator from './components/Calculator'
-import reportWebVitals from './reportWebVitals'
+// import reportWebVitals from './reportWebVitals'
 import ErrorBoundary from './components/ErrorBoundary'
 
 // const NameFormUncontrolled = React.lazy(() => import('./components/NameFormUncontrolled')) 
@@ -24,7 +25,7 @@ import ErrorBoundary from './components/ErrorBoundary'
 
 // const SplitPane = React.lazy(() => import('./components/SplitPane'))
 // const WelcomeBorder = React.lazy(() => import('./components/WelcomeBorder'))
-const ErrorBoundaryExample = React.lazy(() => import('./components/ErrorBoundaryExample'))
+// const ErrorBoundaryExample = React.lazy(() => import('./components/ErrorBoundaryExample'))
 // const SignUpDialog = React.lazy(() => import('./components/SignUpDialog'))
 
 // const FilterableProductTable = React.lazy(() => import('./components/FilterableProductTable'))
@@ -50,15 +51,14 @@ const ErrorBoundaryExample = React.lazy(() => import('./components/ErrorBoundary
 //   {category: 'Electronics', price: '$399.99', stocked: false, name: 'iPhone 5'},
 //   {category: 'Electronics', price: '$199.99', stocked: true, name: 'Nexus 7'}
 // ];
-
 ReactDOM.render(
   <React.StrictMode>
-      <Suspense fallback={<div>Loading...</div>}>
-        <ErrorBoundary>
-          <ErrorBoundaryExample />
-        </ErrorBoundary>
-      </Suspense>
-      
+    <Suspense fallback={<div>Loading...</div>}>
+      <ErrorBoundary>
+        <App />
+      </ErrorBoundary>
+    </Suspense>
+
   </React.StrictMode>,
   document.getElementById('root')
 );
@@ -68,4 +68,4 @@ ReactDOM.render(
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+// reportWebVitals();

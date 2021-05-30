@@ -1,94 +1,76 @@
-import React from 'react';
 import {
   BrowserRouter as Router,
   Link,
   Switch,
-  Route,
-  useRouteMatch,
-  useParams
+  Route
 } from "react-router-dom";
 // import logo from './logo.svg';
 import './App.css';
+import BaseRoute from './views/router/basic-routing';
+import NestedRoute from './views/router/nested-routing';
+import ParamsExample from './views/router/params-example';
+import AuthExample from './views/router/redirects'
+import CustomLink from './views/router/custom-link'
+import PreventingTransitions from './views/router/preventing-transitions'
 
-function Home(){
+function Home() {
   return <h2>Home</h2>
 }
 
-function About(){
+function About() {
   return <h2>About</h2>
 }
-// function Users(){
-//   return <h2>Users</h2>
-// }
+
+const LinkList = [<Link to="/">Home</Link>, <Link to="/base-route">BaseRoute</Link>, <Link to="/users">Users</Link>,
+<Link to="/nested-route">NestedRoute</Link>,
+<Link to="/params-expamle">ParamsExample</Link>,
+<Link to="/auth-example">AuthExample</Link>,
+<Link to="/custom-link">CustomLink</Link>,
+<Link to="/preventing-transitions">PreventingTransitions</Link>
+]
 
 function App() {
   return (
-   <Router>
-     <div>
-       <nav>
-         <ul>
-         <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/topics">Topics</Link>
-            </li>
-            <li>
-              <Link to="/users">Users</Link>
-            </li>
-         </ul>
-       </nav>
+    <Router>
+      <div>
+        <nav>
+          <ul>
+            {
+              LinkList.map((el, index) => <li key={index}>{el}</li>)
+            }
+          </ul>
+        </nav>
 
-       <Switch>
+        <Switch>
           <Route path="/about">
             <About />
           </Route>
-          <Route path="/topics">
-            <Topics />
+          <Route path="/base-route">
+            <BaseRoute />
+          </Route>
+          <Route path="/nested-route">
+            <NestedRoute />
+          </Route>
+          <Route path="/params-expamle">
+            <ParamsExample />
+          </Route>
+          <Route path="/auth-example">
+            <AuthExample />
+          </Route>
+          <Route path="/custom-link">
+            <CustomLink />
+          </Route>
+          <Route path="/preventing-transitions">
+            <PreventingTransitions />
           </Route>
           <Route path="/">
             <Home />
           </Route>
         </Switch>
-     </div>
-   </Router>
+      </div>
+    </Router>
   );
 }
-
-function Topic(){
-  const {topicId} = useParams<{topicId:string}>()
-  return <h3>Requested topic ID: {topicId}</h3>
-}
-
-function Topics(){
-  const match = useRouteMatch()
-  return (
-    <div>
-      <h2>Topics</h2>
-      <ul>
-        <li>
-          <Link to={`${match.url}/components`}>
-            Components
-          </Link>
-        </li>
-        <li>
-          <Link to={`${match.url}/props-v-state`}>
-            Props v. State
-          </Link>
-        </li>
-      </ul>
-      <Switch>
-        <Route path={`${match.path}/:topicId`}>
-            <Topic />
-        </Route>
-        <Route path={match.path}>
-            <h3>Please select a topic.</h3>
-        </Route>
-      </Switch>
-    </div>
-  )
-}
-
 
 
 export default App;
