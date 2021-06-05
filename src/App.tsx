@@ -12,9 +12,16 @@ import ParamsExample from './views/router/params-example';
 import AuthExample from './views/router/redirects'
 import CustomLink from './views/router/custom-link'
 import PreventingTransitions from './views/router/preventing-transitions'
-
+import {Demo1, SearchResults, EffectDemo3, Blub} from './components/useEffect'
+import { useCallback, useRef, useState } from "react";
+import { CallbackDemo1 } from "./components/useCallback";
+import {StateDemo1, StateDemo2, GoodsStateDemo2} from './components/useState'
 function Home() {
-  return <h2>Home</h2>
+  return (
+      <div>
+         <GoodsStateDemo2 />
+      </div>
+  )
 }
 
 function About() {

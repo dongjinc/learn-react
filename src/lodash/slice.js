@@ -16,7 +16,6 @@ function slice(array, start, end) {
     if (end < 0) {
         end += length
     }
-    debugger
     length = start > end ? 0 : ((end - start) >>> 0)
     start >>>= 0
     const result = new Array(length)
