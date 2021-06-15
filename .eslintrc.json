@@ -1,5 +1,7 @@
 {
     "plugins": ["react-hooks"],
+    // resolve ->  Parsing error: Unexpected token <
+    "parser": "babel-eslint",
     // https://juejin.cn/post/6844903492545429512
     // parserOptions 新增eslint识别tsx和jsx文件
     "parserOptions": {

@@ -14,12 +14,17 @@ import CustomLink from './views/router/custom-link'
 import PreventingTransitions from './views/router/preventing-transitions'
 import {Demo1, SearchResults, EffectDemo3, Blub} from './components/useEffect'
 import { useCallback, useRef, useState } from "react";
-import { CallbackDemo1 } from "./components/useCallback";
-import {StateDemo1, StateDemo2, GoodsStateDemo2} from './components/useState'
+import { CallbackDemo1, CallbackDemo2 } from "./components/useCallback";
+import {StateDemo1, StateDemo2, GoodsStateDemo2, StateDemo3} from './components/useState'
+import {MemoDemo2} from './components/useMemo'
+import {ContextDemo1} from './components/useContext'
+import {RefDemo2} from './components/useRef'
+import {StickyContent} from './components/Sticky'
+import {FormDemo1} from './components/Form'
 function Home() {
   return (
       <div>
-         <GoodsStateDemo2 />
+         <FormDemo1 />
       </div>
   )
 }

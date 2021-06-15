@@ -1,6 +1,6 @@
 // useRef 可以在其.current属性中保存一个可变值的盒子
 
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 /**
  * useRef 可操作dom，current属性设置为响应的DOM节点
@@ -19,3 +19,24 @@ export function RefDemo1(){
         </div>
     )
 }
+
+export function RefDemo2(){
+    const [count, setCount] = useState(0)
+    const btnRef = useRef(null)
+    useEffect(() => {
+        console.log('use effect ...')
+        const btnCurrent = btnRef.current
+        const onClick = () => {
+            setCount(count + 1)
+        }
+        btnCurrent.addEventListener('click', onClick, false)
+        return () => btnCurrent.removeEventListener('click', onClick, false)
+    })
+    return (
+        <div>
+            <p>{count}</p>
+            <button ref={btnRef}>click me</button>
+        </div>
+    )
+}
+

@@ -1,10 +1,9 @@
-import { memo, useCallback, useMemo, useState } from "react";
+import { Component, memo, useCallback, useMemo, useState } from "react";
 
 // hooks 解决的问题
 // 1.类组件的不足
 //  1).状态逻辑难复用
 //  2).趋向复杂难以维护
-
 
 /**
  * 
@@ -13,8 +12,7 @@ import { memo, useCallback, useMemo, useState } from "react";
  2.与class组件中的setState方法不同,如果修改状态的时候,传的状态值没有变化,则不重新渲染
  3.与class组件中的setState方法不同,useState不会自动合并更新对象.可用函数式的setState结合展开运算符来达到合并更新对象的效果
  */
-// 如果修改状态,传入的状态值没有变化,则不重新渲染
-
+// 函数组件中 如果修改状态,传入的状态值没有变化,则不重新渲染
 export function StateDemo1(){
     const [counter, setCount] = useState({name: '计数器', number: 0})
     console.log('render Counter')
@@ -25,6 +23,32 @@ export function StateDemo1(){
     )
 }
 
+
+// class组件中setState相同值时 会触发重新渲染
+export class StateDemo3 extends Component<{}, {name: string}> {
+    constructor(props){
+        super(props)
+        this.state = {
+            name: '张三'
+        }
+        this.onNameChange = this.onNameChange.bind(this)
+    }
+    onNameChange(){
+        this.setState({
+            name: '张三'
+        })
+    }
+    render(){
+        console.log('init')
+        return (
+            <div>
+                {this.state.name}
+                <button onClick={this.onNameChange}>changeName</button>
+            </div>
+        )
+    }
+}
+
 /**
  * 减少渲染次数
  * 默认情况,只要父组件状态变了(不管组件依不依赖该状态),子组件也会重新渲染
@@ -33,7 +57,7 @@ export function StateDemo1(){
  * 2.函数组件:使用React.memo,会返回一个新的组件,如果接受的属性不变,则不重新渲染函数
  * 深入优化
  * 1.useCallback: 接收一个内联回调函数参数和一个依赖项数组(子组件依赖父组件的状态,即子组件会用到父组件的值),useCallback会返回该回调函数memoized版本,该回调函数仅在某个依赖项改变时才会更新
- * 2.useMemo: 把创建函数和依赖项数组作为参数传入useMemo,它仅会在某个依赖项改变时才重新激素按memoized值,有助于避免在每次渲染时进行高开销的计算
+ * 2.useMemo: 把创建函数和依赖项数组作为参数传入useMemo,它仅会在某个依赖项改变时才重新计算memoized值,有助于避免在每次渲染时进行高开销的计算
  */
 function SubCounter({onClick, data}){
     console.log('Subcounter render')
@@ -85,6 +109,7 @@ export function GoodsStateDemo2(){
         </>
     )
 }
+
 
 
 // useState 源码
