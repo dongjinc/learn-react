@@ -40,3 +40,26 @@ export function RefDemo2(){
     )
 }
 
+/**
+ * 通过useRef 获取上一轮的Props或State
+ * 利用useEffect特性，第一次渲染之后和每次渲染之后都会执行。保证了每次运行effect的同时，DOM都已经更新完毕
+ */
+function usePrevious(value: number){
+    console.log(value, 'value')
+    const ref= useRef(0)
+    useEffect(() => {
+        ref.current = value
+    })
+    return ref.current
+}
+
+export function RefDemo3(){
+    const [count, setCount] = useState(0)
+    const onCountChange = () => {
+        setCount(count + 1)
+    }
+    const prevCalculation = usePrevious(count)
+    return (
+        <h1 onClick={onCountChange}>now: {count}, before: {prevCalculation}</h1>
+    )
+}
