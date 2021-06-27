@@ -2,6 +2,7 @@ import React, { Component, forwardRef, useState } from "react";
 /**
  * 操作props
  * 通过传给了高阶组件返回的组件WrappedComponent，这样可以获得props的控制权（这种方法叫做属性代理）
+ * https://juejin.cn/post/6844904050236850184#heading-23
  */
 const HOC = (WrappedComponent) => {
     const Love = ({forwardedRef}) => {
