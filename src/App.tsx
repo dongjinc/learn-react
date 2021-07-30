@@ -27,17 +27,22 @@ import {CounterDemo1} from './hooks/reducer'
 import {UncontrolledDemo1} from './components/UncontrolledComponents'
 import {HocDemo1} from './components/HocComponent'
 import ModalComponent from './components/Modal'
+import MuyaLink from '../src/muya/link'
+// import MuyaSetps from '../src/muya/setps'
+import MuyaBreadcrumbs from '../src/muya/breadcrumbs'
+
 function Home() {
-  const useInputRefs = useRef()
-  useEffect(() => {
-    console.log(useInputRefs, 'useInputRef')
-  }, [])
-  return (
-      <div>
-        {/* @ts-ignore */}
-         <HocDemo1 ref={useInputRefs} />
-      </div>
-  )
+  // const useInputRefs = useRef()
+  // useEffect(() => {
+  //   console.log(useInputRefs, 'useInputRef')
+  // }, [])
+  // return (
+  //     <div>
+  //       {/* @ts-ignore */}
+  //        <HocDemo1 ref={useInputRefs} />
+  //     </div>
+  // )
+  return <MuyaBreadcrumbs />
 }
 
 function About() {
@@ -64,7 +69,6 @@ function App() {
             }
           </ul>
         </nav>
-            <ModalComponent />
         <Switch>
           <Route path="/about">
             <About />
