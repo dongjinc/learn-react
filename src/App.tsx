@@ -26,7 +26,7 @@ import {AutoLoadingDemo} from './components/Button'
 import {CounterDemo1} from './hooks/reducer'
 import {UncontrolledDemo1} from './components/UncontrolledComponents'
 import {HocDemo1} from './components/HocComponent'
-
+import ModalComponent from './components/Modal'
 function Home() {
   const useInputRefs = useRef()
   useEffect(() => {
@@ -53,6 +53,7 @@ const LinkList = [<Link to="/">Home</Link>, <Link to="/base-route">BaseRoute</Li
 ]
 
 function App() {
+
   return (
     <Router>
       <div>
@@ -63,7 +64,7 @@ function App() {
             }
           </ul>
         </nav>
-
+            <ModalComponent />
         <Switch>
           <Route path="/about">
             <About />

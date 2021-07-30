@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 
 import './lodash'
 
+import 'antd/dist/antd.css';
+
 import './index.css';
 import App from './App';
 // import Gretting from './views/gretting'
