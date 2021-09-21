@@ -1,9 +1,4 @@
-import {
-  BrowserRouter as Router,
-  Link,
-  Switch,
-  Route
-} from "react-router-dom";
+import { BrowserRouter as Router, Link, Switch, Route } from "react-router-dom";
 // import logo from './logo.svg';
 import './App.css';
 import BaseRoute from './views/router/basic-routing';
@@ -47,27 +42,29 @@ function Home() {
 }
 
 function About() {
-  return <h2>About</h2>
+  return <h2>About</h2>;
 }
 
-const LinkList = [<Link to="/">Home</Link>, <Link to="/base-route">BaseRoute</Link>, <Link to="/users">Users</Link>,
-<Link to="/nested-route">NestedRoute</Link>,
-<Link to="/params-expamle">ParamsExample</Link>,
-<Link to="/auth-example">AuthExample</Link>,
-<Link to="/custom-link">CustomLink</Link>,
-<Link to="/preventing-transitions">PreventingTransitions</Link>
-]
+const LinkList = [
+  <Link to="/">Home</Link>,
+  <Link to="/base-route">BaseRoute</Link>,
+  <Link to="/users">Users</Link>,
+  <Link to="/nested-route">NestedRoute</Link>,
+  <Link to="/params-expamle">ParamsExample</Link>,
+  <Link to="/auth-example">AuthExample</Link>,
+  <Link to="/custom-link">CustomLink</Link>,
+  <Link to="/preventing-transitions">PreventingTransitions</Link>,
+];
 
 function App() {
-
   return (
     <Router>
       <div>
         <nav>
           <ul>
-            {
-              LinkList.map((el, index) => <li key={index}>{el}</li>)
-            }
+            {LinkList.map((el, index) => (
+              <li key={index}>{el}</li>
+            ))}
           </ul>
         </nav>
         <Switch>
@@ -100,6 +97,5 @@ function App() {
     </Router>
   );
 }
-
 
 export default App;
