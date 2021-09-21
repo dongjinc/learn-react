@@ -54,14 +54,14 @@ import ErrorBoundary from './components/ErrorBoundary'
 //   {category: 'Electronics', price: '$199.99', stocked: true, name: 'Nexus 7'}
 // ];
 ReactDOM.render(
-  <React.StrictMode>
-    <Suspense fallback={<div>Loading...</div>}>
-      <ErrorBoundary>
-        <App />
-      </ErrorBoundary>
-    </Suspense>
+  // <React.StrictMode>
+  <Suspense fallback={<div>Loading...</div>}>
+    <ErrorBoundary>
+      <App />
+    </ErrorBoundary>
+  </Suspense>,
 
-  </React.StrictMode>,
+  // </React.StrictMode>,
   document.getElementById('root')
 );
 

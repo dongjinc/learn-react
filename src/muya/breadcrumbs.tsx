@@ -1,5 +1,8 @@
 import { Breadcrumbs, Space, InlineButton } from '@qunhe/muya-ui';
 export default function BasicDemo() {
+  const onMouseEnter = () => {
+    console.log('enter')
+  }
   return (
     <Space direction="vertical" spacing="s8" block>
       <Breadcrumbs
@@ -7,6 +10,7 @@ export default function BasicDemo() {
           {
             label: '顶层',
             url: '.',
+            onMouseEnter: onMouseEnter
           },
           {
             label: '层级二',

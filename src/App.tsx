@@ -12,24 +12,25 @@ import ParamsExample from './views/router/params-example';
 import AuthExample from './views/router/redirects'
 import CustomLink from './views/router/custom-link'
 import PreventingTransitions from './views/router/preventing-transitions'
-import {Demo1, SearchResults, EffectDemo3, Blub} from './components/useEffect'
+import { Demo1, SearchResults, EffectDemo3, Blub } from './components/useEffect'
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import { CallbackDemo1, CallbackDemo2 } from "./components/useCallback";
-import {StateDemo1, StateDemo2, GoodsStateDemo2, StateDemo3, StateDemo4, StateDemo5, StateDemo6, StateDemo7, StateDemo8} from './components/useState'
-import {MemoDemo2} from './components/useMemo'
-import {ContextDemo1} from './components/useContext'
-import {RefDemo2, RefDemo3} from './components/useRef'
-import {StickyContent} from './components/Sticky'
-import {FormDemo1} from './components/Form'
+import { StateDemo1, StateDemo2, GoodsStateDemo2, StateDemo3, StateDemo4, StateDemo5, StateDemo6, StateDemo7, StateDemo8 } from './components/useState'
+import { MemoDemo2 } from './components/useMemo'
+import { ContextDemo1 } from './components/useContext'
+import { RefDemo2, RefDemo3 } from './components/useRef'
+import { StickyContent } from './components/Sticky'
+import { FormDemo1 } from './components/Form'
 import VerticalDemo from './components/CombinationSwiper'
-import {AutoLoadingDemo} from './components/Button'
-import {CounterDemo1} from './hooks/reducer'
-import {UncontrolledDemo1} from './components/UncontrolledComponents'
-import {HocDemo1} from './components/HocComponent'
+import { AutoLoadingDemo } from './components/Button'
+import { CounterDemo1 } from './hooks/reducer'
+import { UncontrolledDemo1 } from './components/UncontrolledComponents'
+import { HocDemo1 } from './components/HocComponent'
 import ModalComponent from './components/Modal'
 import MuyaLink from '../src/muya/link'
 // import MuyaSetps from '../src/muya/setps'
 import MuyaBreadcrumbs from '../src/muya/breadcrumbs'
+import MuyaFormDemo1 from '../src/muya/formDemo1'
 
 function Home() {
   // const useInputRefs = useRef()
@@ -42,7 +43,7 @@ function Home() {
   //        <HocDemo1 ref={useInputRefs} />
   //     </div>
   // )
-  return <MuyaBreadcrumbs />
+  return <MuyaFormDemo1 />
 }
 
 function About() {
